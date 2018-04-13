@@ -4,14 +4,12 @@
 
   <div class="list">
     <h2 class="list-title">{{ .Title }}</h2>
-    {{ range .Paginator.Pages }}
-     
+    {{ range .Data.Pages }}
+
     {{ partial "list-item.html" . }}
 
     {{ end }}
    </div>
-
-  {{ partial "pagination.html" . }}
 
 </main>
 
