@@ -10,8 +10,7 @@
     <name>{{.}}</name>{{end}}{{with .Site.Author.email }}
     <email>{{.}}</email>{{end}}
   </author>
-  {{- range .Data.Pages -}}
-  {{- if eq .Section "post" }}
+  {{ range where (where .Data.Pages "Type" "post") ".Params.unlisted" "!=" "true" -}}
   <entry>
     <title type="html">{{ .Title }}</title>
     <link href="{{ .Permalink }}" rel="alternate" type="text/html" title="{{ .Title }}"/>
@@ -30,6 +29,5 @@
     {{- end }}
     <content type="html" xml:base="{{ .Permalink }}">{{`<![CDATA[` | safeHTML}}{{ .Content | safeHTML }}]]></content>
   </entry>
-  {{- end -}}
-  {{- end }}
+  {{ end }}
 </feed>
