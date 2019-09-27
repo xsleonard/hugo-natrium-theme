@@ -4,7 +4,7 @@
 
   <div class="list">
     <h2 class="list-title">{{ .Title }}</h2>
-    {{ range .Data.Pages }}
+    {{ range .Site.RegularPages }}
 
     {{ partial "list-item.html" . }}
 

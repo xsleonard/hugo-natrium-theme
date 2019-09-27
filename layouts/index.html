@@ -3,15 +3,15 @@
 <main class="content">
 
   <div class="list">
-     {{ range (where (where .Data.Pages "Type" "post") ".Params.unlisted" "!=" "true").GroupByDate "2006" }}
+     {{ range (where (where .Site.RegularPages "Type" "post") ".Params.unlisted" "!=" "true").GroupByDate "2006" }}
   <h2 class="list-title">{{ .Key }}</h2>
     {{ range .Pages }}
-    
+
     {{ partial "list-item.html" . }}
 
     {{ end }}
     {{ end }}
-  </div>  
+  </div>
 
 </main>
 

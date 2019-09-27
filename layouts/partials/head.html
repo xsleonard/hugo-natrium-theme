@@ -1,16 +1,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ .Hugo.Generator }}
+{{ hugo.Generator }}
 
 <link rel="icon" href="{{ .Site.Params.favicon }}">
 
-{{ if eq .URL "/" }}
+{{ if .IsHome }}
 <title>{{ .Title }}</title>
 {{ else }}
 <title>{{ .Title }} – {{ .Site.Title }}</title>
 {{ end }}
 
-{{ if eq .URL "/" }}
+{{ if .IsHome }}
 <meta property="description" content="{{ .Site.Params.description }}">
 {{ else }}
   {{ if .Description }}
